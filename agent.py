@@ -133,9 +133,7 @@ class LearningAgent(Agent):
         
         if self.learning:
             tempDict = self.Q.get(state)
-            if self.testing:
-                action = chooseMaxQAction(tempDict)
-            elif random.uniform(0, 1) < self.epsilon:
+            if random.uniform(0, 1) < self.epsilon:
                 action = random.choice(self.valid_actions)
             else:
                 action = chooseMaxQAction(tempDict)
